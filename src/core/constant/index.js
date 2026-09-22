@@ -11,3 +11,4 @@ export const menueopen = [
 ]
 export const filtered1 = menueopen.filter(item => item.id<6)
 export const filtered2 = menueopen.filter(item => item.id>=6)
+

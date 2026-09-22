@@ -25,12 +25,12 @@ export default function Header() {
             </nav>
             <div className="w-full lg:flex-row-reverse lg:mr-40 lg:mt-5 lg:gap-40  flex flex-col items-center">
                 <div className="flex justify-between lg:justify-end lg:w-1/10 w-86/100">
-                    <button className="flex lg:hidden" onBlur={() => setmenue("unmenue")} onClick={() => btnhandler()}>
+                    <button className={`flex lg:hidden`} onBlur={() => setmenue("unmenue")} onClick={() => btnhandler()}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 23H24V20.1304H0V23ZM0 13.4348H24V10.5652H0V13.4348ZM0 1V3.86957H24V1H0Z" fill="#032340" />
                         </svg>
                     </button>
-                    <div className={`lg:hidden w-5/10 bg-[#032340] rounded-2xl fixed flex-col   z-10  ${menue === "menue" ? "flex" : "hidden"}`}>
+                    <div className={`lg:hidden w-5/10 bg-[#032340] left-2 rounded-2xl fixed flex-col   z-11  ${menue === "menue" ? "flex" : "hidden"}`}>
                         {menueopen.map((item, index) => (
                             <p className="text-white border-b border-white p-3 text-[12px]">{item.name}</p>
                         ))}

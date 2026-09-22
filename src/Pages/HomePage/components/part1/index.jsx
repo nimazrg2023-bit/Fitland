@@ -5,7 +5,7 @@ import { NavLink } from "react-router";
 
 export default function Part1() {
     return (
-        <div className="flex  bg-no-repeat bg-bottom lg:bg-[url('/Frame.png')] lg:h-135 w-95/100 flex-row-reverse lg:justify-between">
+        <div className="flex  bg-no-repeat bg-bottom lg:bg-[url('/Frame.png')] lg:h-135 w-90/100 flex-row-reverse lg:justify-between">
             <div className="flex flex-col gap-5 relative lg:bottom-20 justify-center items-end lg:w-40/100 w-80/100 z-10 ">
                 <p className="lg:font-bold font-medium text-[10px] lg:text-[16px] text-[#606060]">!راحت و مطمئن خرید کنید</p>
                 <p className="lg:text-[32px] text-[16px] text-[#032340] font-semibold">همراه تو در مسیر سلامتی</p>
