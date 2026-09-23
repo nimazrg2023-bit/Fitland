@@ -32,10 +32,10 @@ export default function Part4() {
                             <SwiperSlide key={index} className="flex lg:w-full  bg-white rounded-2xl">
                                 <div className="flex absolute gap-2 mt-2 ml-2">
                                     <div className="bg-[#67AAE6] text-[14px] font-normal rounded-full size-10 p-3 flex justify-center items-center"> {item.discount}% </div>
-                                    <div className={` ${item.vip ? "flex" : "hidden"}`}>VIP</div>
+                                    <div className={` ${item.vip ? "flex" : "hidden"} text-white flex justify-center items-center bg-[#FA541C] text-[14px] font-normal rounded-full size-10  `}>VIP</div>
                                 </div>
-                                <img className="lg:h-80 h-70 mb-3 rounded-t-2xl w-full" src={item.image} alt="" />
-                                <div className="flex flex-col items-end gap-3 ">
+                                <img className="lg:h-80 h-70  rounded-t-2xl w-full" src={item.image} alt="" />
+                                <div className="flex p-5 pb-15 lg:pb-20 flex-col items-end gap-3 ">
                                     <p className="text-right">{item.title}</p>
                                     <p><span>تومان</span> {item.price} </p>
                                     <div className="flex flex-col items-end">
