@@ -281,7 +281,7 @@ export const products = [
         {
         id: 19,
         title: 'دوچرخه مدل AO-14',
-        image: 'https://via.placeholder.com/400x300/2D5A5A/ffffff?text=Bike+AO-14',
+        image: '/nike7.jpg',
         price: 2000000,
         oldPrice: 2500000,
         rating: 4.5,
@@ -296,7 +296,7 @@ export const products = [
     {
         id: 20,
         title: 'دوچرخه مدل S-2000',
-        image: 'https://via.placeholder.com/400x300/7A4A8B/ffffff?text=Bike+S-2000',
+        image: '/nike8.jpg',
         price: 2000000,
         oldPrice: 2500000,
         rating: 4,
@@ -311,7 +311,7 @@ export const products = [
     {
         id: 21,
         title: 'اسکوتر مدل A-155',
-        image: 'https://via.placeholder.com/400x300/4A5A4A/ffffff?text=Scooter+A-155',
+        image: '/nike9.jpg',
         price: 3000000,
         oldPrice: 3500000,
         rating: 5,

@@ -10,7 +10,7 @@ export default function Part4() {
     const [prevEl, setPrevEl] = useState(null);
     const [nextEl, setNextEl] = useState(null);
     return (
-        <div className="mt-100 gap-5  flex flex-col items-center bg-[#FFF7F4] w-full">
+        <div className="lg:mt-100 mt-40 gap-5  flex flex-col items-center bg-[#FFF7F4] w-full">
             <p className="lg:text-[32px] text-[14px] font-medium  bg-white p-3 rounded-b-2xl lg:rounded-b-4xl text-[#021526] lg:font-semibold">تخفیفات ویژه</p>
             <div className="w-85/100  flex flex-col gap-5">
                 <div className=" gap-2 lg:flex hidden ml-10">

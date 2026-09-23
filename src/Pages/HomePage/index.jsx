@@ -4,6 +4,7 @@ import Part3 from "./components/part3";
 import Part4 from "./components/part4";
 import Part5 from "./components/part5";
 import Part6 from "./components/part6";
+import Part7 from "./components/part7";
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
             <Part4 />
             <Part5 />
             <Part6 />
+            <Part7 />
         </div>
     )
 }
