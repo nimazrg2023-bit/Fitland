@@ -7,7 +7,7 @@ export default function Part10() {
             <p className="text-[30px] font-semibold text-[#021526]">جدیدترین ها در اخبار ورزش</p>
             <div className="flex justify-center gap-10 items-center  w-90/100">
                 {news.map((item, index) => (
-                    <div key={index} className={` max-sm:${index === 0 ? "flex" : "hidden"} lg:w-6/10 w-9/10 flex flex-col rounded-2xl shadow-2xl items-end gap-3`}>
+                    <div key={index} className={` max-sm:${index === 0 ? "flex" : "hidden"} lg:w-6/10 w-9/10 flex flex-col rounded-2xl lg:shadow-2xl items-end gap-3`}>
                         <img className="h-85 rounded-t-2xl w-full" src={item.image} alt="" />
                         <div className="flex flex-col items-end gap-5 p-5">
                             <p className="lg:text-[22px] text-[16px] font-bold text-[#01070D] text-right">{item.title}</p>
