@@ -325,6 +325,12 @@ export const products = [
     },
 
 ];
+
 export const filteredsp = products.filter(item => item.id > 11 && item.id < 17)
 export const filteredsh = products.filter(item => item.id > 13 && item.id < 19) 
-export const filteredsg = products.filter(item => item.id > 17) 
+export const filteredsg = products.filter(item => item.id > 17)
+
+export const news = [
+    {id:1 , image:"/news1.png", title:"شکست استرالیا در گام نخست جام جهانی فوتبال زنان" , name:"تیم‌ها در روز اول مسابقات جام جهانی فوتبال زنان در شهر مادرید اسپانیا با یکدیگر به رقابت پرداختند"},
+    {id:2 , image:"/news2.jpg", title:"افزایش دریافتی فوتبالیست ها و معافیت از سربازی " , name:"خبرها حاکی از آن است که رییس فدراسیون فوتبال اعلام کرد در فصل جاری قرار داد هر بازیکن فوتبال 50 درصد افزایش پیدا میکند همچنین وی گفت"}
+]
