@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 export default function Part2() {
     return (
-        <div className="w-9/10 lg:w-85/100 lg:items-end flex flex-row-reverse gap-5 mt-5 justify-around items-center ">
+        <div className="w-8/10 lg:w-92/100 lg:items-end flex flex-row-reverse gap-5 mt-5 justify-around items-center ">
             <div className="w-48/100 lg:w-40/100 relative rounded-2xl overflow-hidden">
 
 

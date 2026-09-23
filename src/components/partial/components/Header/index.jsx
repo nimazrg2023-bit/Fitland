@@ -24,7 +24,7 @@ export default function Header() {
                 (: با عضویت در فیت لند اولین ارسال را مهمون ما باش
             </nav>
             <div className="w-full lg:flex-row-reverse lg:mr-40 lg:mt-5 lg:gap-40  flex flex-col items-center">
-                <div className="flex justify-between lg:justify-end lg:w-1/10 w-86/100">
+                <div className="flex justify-between lg:justify-end lg:w-1/10 w-80/100">
                     <button className={`flex lg:hidden`} onBlur={() => setmenue("unmenue")} onClick={() => btnhandler()}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 23H24V20.1304H0V23ZM0 13.4348H24V10.5652H0V13.4348ZM0 1V3.86957H24V1H0Z" fill="#032340" />
@@ -32,7 +32,7 @@ export default function Header() {
                     </button>
                     <div className={`lg:hidden w-5/10 bg-[#032340] left-2 rounded-2xl fixed flex-col   z-11  ${menue === "menue" ? "flex" : "hidden"}`}>
                         {menueopen.map((item, index) => (
-                            <p className="text-white border-b border-white p-3 text-[12px]">{item.name}</p>
+                            <p key={index} className="text-white border-b border-white p-3 text-[12px]">{item.name}</p>
                         ))}
                     </div>
                     <Link className="flex lg:hidden" to={"/"}>
@@ -84,7 +84,7 @@ export default function Header() {
                     </Link>
 
                 </div>
-                <div className="relative lg:border lg:border-gray-300 lg:rounded-2xl  bg-[#F9F9F9] justify-end gap-3 flex rounded-3xl mt-5 lg:w-45/100 w-9/10 p-3 ">
+                <div className="relative lg:border lg:border-gray-300 lg:rounded-2xl  bg-[#F9F9F9] justify-end gap-3 flex rounded-3xl mt-5 lg:w-45/100 w-8/10 p-3 ">
                     <input type="text" placeholder="جتسوجو" className="  text-[14px] outline-none w-full font-light text-right" />
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5 21.75C5.85 21.75 1.25 17.15 1.25 11.5C1.25 5.85 5.85 1.25 11.5 1.25C17.15 1.25 21.75 5.85 21.75 11.5C21.75 17.15 17.15 21.75 11.5 21.75ZM11.5 2.75C6.67 2.75 2.75 6.68 2.75 11.5C2.75 16.32 6.67 20.25 11.5 20.25C16.33 20.25 20.25 16.32 20.25 11.5C20.25 6.68 16.33 2.75 11.5 2.75Z" fill="#FA541C" />
@@ -112,12 +112,12 @@ export default function Header() {
             <div className="lg:flex mt-10 justify-between w-9/10  rounded-2xl bg-[#F9F9F9] p-5 hidden">
                 <div className="flex flex-row-reverse gap-10 ml-5">
                     {filtered2.map((item, index) => (
-                    <p className="font-[600] text-[14px]">{item.name}</p>
+                    <p key={index}  className="font-[600] text-[14px]">{item.name}</p>
                 ))}
                 </div>
                 <div className="flex flex-row-reverse gap-10 mr-5">
                     {filtered1.map((item ,index) =>(
-                        <p className="font-[600] text-[14px]">{item.name}</p>
+                        <p key={index} className="font-[600] text-[14px]">{item.name}</p>
                     ))}
                 </div>
             </div>

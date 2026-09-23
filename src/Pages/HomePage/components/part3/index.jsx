@@ -4,7 +4,7 @@ export default function Part3() {
     return (
         <div className="flex flex-row-reverse  mt-15 w-full">
             <img className="absolute w-full" src="/banner.jpg" alt="" />
-            <div className="relative mr-30 mt-45 max-sm:mt-10 max-sm:mr-5 w-4/10 max-sm:w-5/10 gap-2 flex flex-col items-end">
+            <div className="relative mr-30 mt-45 max-sm:mt-15 max-sm:mr-10 w-4/10 max-sm:w-5/10 gap-2 flex flex-col items-end">
 
                 <p className="text-[18px] max-sm:text-[10px] max-sm:font-medium font-medium">برای حل خوب</p>
                 <p className="text-[24px] max-sm:text-[10px] max-sm:font-medium font-bold ">لوازم ایروبیک و تناسب اندام بگیر</p>

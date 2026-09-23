@@ -27,6 +27,7 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 20,
+        vip: true,
     },
     {
         id: 2,
@@ -41,6 +42,7 @@ export const products = [
         brand: 'Adidas',
         inStock: true,
         discount: 20,
+        vip: false,
     },
     {
         id: 3,
@@ -55,6 +57,7 @@ export const products = [
         brand: 'Under Armour',
         inStock: false,
         discount: 20,
+        vip: true,
     },
     {
         id: 4,
@@ -69,6 +72,7 @@ export const products = [
         brand: 'Puma',
         inStock: true,
         discount: 20,
+        vip: false,
     },
     {
         id: 5,
@@ -83,6 +87,7 @@ export const products = [
         brand: 'Reebok',
         inStock: true,
         discount: 20,
+        vip: false,
     },
     {
         id: 6,
@@ -97,6 +102,7 @@ export const products = [
         brand: 'The North Face',
         inStock: true,
         discount: 15,
+        vip: true,
     },
     {
         id: 7,
@@ -111,6 +117,7 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 15,
+        vip: true,
     },
     {
         id: 8,
@@ -125,6 +132,7 @@ export const products = [
         brand: 'Adidas',
         inStock: false,
         discount: 10,
+        vip: false,
     },
     {
         id: 9,
@@ -139,6 +147,7 @@ export const products = [
         brand: 'Under Armour',
         inStock: true,
         discount: 25,
+        vip: true,
     },
     {
         id: 10,
@@ -153,6 +162,7 @@ export const products = [
         brand: 'Puma',
         inStock: true,
         discount: 20,
+        vip: false,
     },
     {
         id: 11,
@@ -167,8 +177,8 @@ export const products = [
         brand: 'Reebok',
         inStock: true,
         discount: 18,
+        vip: true,
     },
-
     {
         id: 12,
         title: 'تیشرت زنانه کد 1827',
@@ -182,11 +192,12 @@ export const products = [
         brand: 'The North Face',
         inStock: true,
         discount: 20,
+        vip: false,
     },
     {
         id: 13,
         title: 'کفش نایک مدل ایر مکس',
-        image: 'https://via.placeholder.com/300x300/2D5A5A/ffffff?text=Nike+Air',
+        image: '/nike1.png',
         price: 850000,
         oldPrice: 1200000,
         rating: 4.5,
@@ -195,11 +206,12 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 30,
+        vip: false,
     },
     {
         id: 14,
         title: 'ست ورزشی زنانه مدل زوم',
-        image: 'https://via.placeholder.com/300x300/1A1A1A/ffffff?text=Zoom+Set',
+        image: '/nike2.png',
         price: 650000,
         oldPrice: 950000,
         rating: 5,
@@ -208,11 +220,12 @@ export const products = [
         brand: 'Adidas',
         inStock: true,
         discount: 25,
+        vip: false,
     },
     {
         id: 15,
         title: 'هودی زنانه مدل اسپرت',
-        image: 'https://via.placeholder.com/300x300/B0B0B0/ffffff?text=Sport+Hoodie',
+        image: '/nike3.png',
         price: 480000,
         oldPrice: 600000,
         rating: 4,
@@ -221,11 +234,12 @@ export const products = [
         brand: 'Under Armour',
         inStock: true,
         discount: 20,
+        vip: true,
     },
     {
         id: 16,
         title: 'کفش نایک مدل ایر فورس',
-        image: 'https://via.placeholder.com/300x300/1E3A5F/ffffff?text=Air+Force',
+        image: '/nike4.jpg',
         price: 920000,
         oldPrice: 1100000,
         rating: 4.5,
@@ -234,11 +248,12 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 15,
+        vip: false,
     },
     {
         id: 17,
         title: 'کفش نایک مدل دانک',
-        image: 'https://via.placeholder.com/300x300/8B5A5A/ffffff?text=Dunk+Low',
+        image: '/nike5.png',
         price: 880000,
         oldPrice: 1050000,
         rating: 5,
@@ -247,11 +262,12 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 10,
+        vip: false,
     },
     {
         id: 18,
         title: 'کفش نایک مدل ایر مکس ۱',
-        image: 'https://via.placeholder.com/300x300/5A3A2A/ffffff?text=Air+Max+1',
+        image: '/nike6.png',
         price: 950000,
         oldPrice: 1150000,
         rating: 4,
@@ -260,8 +276,8 @@ export const products = [
         brand: 'Nike',
         inStock: true,
         discount: 12,
+        vip: true,
     },
-
 ];
-export const filteredsp = products.filter(item => 15 >= item.id > 12) 
-export const filteredsh = products.filter(item => 18 >= item.id > 15) 
+export const filteredsp = products.filter(item => item.id > 11 && item.id < 17)
+export const filteredsh = products.filter(item => item.id > 13) 
