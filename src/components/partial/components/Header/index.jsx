@@ -93,7 +93,7 @@ export default function Header() {
                 </div>
                 <div className="lg:flex hidden w-15/100 justify-center items-center flex-row-reverse gap-12 ">
                     <div className='flex gap-5 justify-center items-center shadow-2xl rounded-[10px] p-4'>
-                        <Link className='text-[18px] font-medium' to="/login"> ثبت نام | ورود</Link>
+                        <Link className='text-[18px] font-medium' to="/Register"> ثبت نام | ورود</Link>
                     </div>
                     <div className='relative flex flex-col bottom-3'>
                         <p className='rounded-full  size-5 right-1 bottom-1 z-10  bg-blue-700 text-white relative flex justify-center items-center'>۰</p>
