@@ -5,7 +5,7 @@ import Header from "./components/Header";
 export default function Layout({ children }) {
     const location = useLocation();
 
-    const isLogin = location.pathname === "/login";
+    const isLogin = location.pathname === "/Login";
     const isRegister = location.pathname === "/Register"
     const isVerify = location.pathname === "/Verify"
     if (isLogin || isRegister || isVerify) {

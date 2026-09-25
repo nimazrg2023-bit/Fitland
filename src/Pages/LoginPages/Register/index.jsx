@@ -18,8 +18,8 @@ export default function Register() {
             terms: Yup.boolean().oneOf([true], "قبول قوانین و مقررات الزامی است"),
         }),
 
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: () => {
+            navigate("/Login")
         },
     });
     const navigate = useNavigate();
@@ -155,7 +155,7 @@ export default function Register() {
 
 
 
-                        <button type="submit" className="w-full mb-10 h-12 rounded-lg bg-orange-500 text-white">
+                        <button type="submit"  className="w-full mb-10 h-12 rounded-lg bg-orange-500 text-white">
                             تایید
                         </button>
                         <div className="flex flex-row-reverse items-center justify-end gap-2 mb-8">
