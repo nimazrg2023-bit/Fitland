@@ -12,7 +12,7 @@ export default function Part5() {
     return (
         <div className="mt-20 gap-5  flex flex-col items-center w-full">
             <p className="lg:text-[32px] text-[14px]   bg-white p-3 rounded-b-2xl lg:rounded-b-4xl text-[#021526] font-semibold">جدید ترین کفش های ورزشی  </p>
-            <div className="w-85/100  flex flex-col gap-5">
+            <div className="w-90/100 lg:85/100 flex flex-col gap-5">
                 <div className=" gap-2 lg:flex hidden ml-10">
                     <NavLink to={"/product"} className="">مشاهده همه</NavLink>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ export default function Part5() {
                             <path d="M10.46 23.1167C10.2067 23.1167 9.95333 23.0233 9.75333 22.8233L1.06 14.13C-0.353333 12.7167 -0.353333 10.3967 1.06 8.98333L9.75333 0.29C10.14 -0.0966666 10.78 -0.0966666 11.1667 0.29C11.5533 0.676667 11.5533 1.31667 11.1667 1.70333L2.47333 10.3967C1.83333 11.0367 1.83333 12.0767 2.47333 12.7167L11.1667 21.41C11.5533 21.7967 11.5533 22.4367 11.1667 22.8233C10.9667 23.01 10.7133 23.1167 10.46 23.1167Z" fill="#021526" />
                         </svg>
                     </button>
-                    <Swiper className="flex w-full mb-10" modules={[Navigation]} navigation={{ prevEl, nextEl }} breakpoints={{320: { slidesPerView: 2, spaceBetween: 10 }, 768: { slidesPerView: 3, spaceBetween: 20 }}}  spaceBetween={20} >
+                    <Swiper className="flex w-full mb-10" modules={[Navigation]} navigation={{ prevEl, nextEl }} breakpoints={{ 320: { slidesPerView: 2, spaceBetween: 10 }, 768: { slidesPerView: 3, spaceBetween: 20 } }} spaceBetween={20} >
                         {filteredsh.map((item, index) => (
                             <SwiperSlide key={index} className="flex lg:w-full  bg-white rounded-2xl">
                                 <div className="flex absolute gap-2 mt-2 ml-2">
@@ -37,7 +37,7 @@ export default function Part5() {
                                 <img className="lg:h-80 h-70 mb-3 rounded-t-2xl w-full" src={item.image} alt="" />
                                 <div className="flex flex-col items-end gap-3 ">
                                     <p className="text-right">{item.title}</p>
-                                    <p><span>تومان</span> {item.price} </p>
+                                    <p className="flex gap-1"><span>تومان</span> {item.price.toLocaleString('fa-IR')} </p>
                                     <div className="flex flex-col items-end">
                                         <div className="flex flex-wrap gap-1 mb-3 justify-end">
                                             <p className="text-[10px] flex   text-gray-600 px-1.5 py-0.5 rounded cursor-pointer hover:border hover:border-gray-800">

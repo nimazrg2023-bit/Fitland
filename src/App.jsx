@@ -15,7 +15,7 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Detail" element={<Detail />} />
+        <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Verify" element={<Verify />} />

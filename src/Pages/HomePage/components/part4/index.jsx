@@ -12,7 +12,7 @@ export default function Part4() {
     return (
         <div className="lg:mt-100 mt-40 gap-5  flex flex-col items-center bg-[#FFF7F4] w-full">
             <p className="lg:text-[32px] text-[14px] font-medium  bg-white p-3 rounded-b-2xl lg:rounded-b-4xl text-[#021526] lg:font-semibold">تخفیفات ویژه</p>
-            <div className="w-85/100  flex flex-col gap-5">
+            <div className="lg:w-85/100 w-9/10  flex flex-col gap-5">
                 <div className=" gap-2 lg:flex hidden ml-10">
                     <NavLink to={"/product"} className="">مشاهده همه</NavLink>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ export default function Part4() {
                                 <img className="lg:h-80 h-70  rounded-t-2xl w-full" src={item.image} alt="" />
                                 <div className="flex p-5 pb-15 lg:pb-20 flex-col items-end gap-3 ">
                                     <p className="text-right">{item.title}</p>
-                                    <p><span>تومان</span> {item.price} </p>
+                                    <p className="flex gap-1"><span>تومان</span> {item.price.toLocaleString('fa-IR')} </p>
                                     <div className="flex flex-col items-end">
                                         <div className="flex flex-wrap gap-1 mb-3 justify-end">
                                             <p className="text-[10px] flex   text-gray-600 px-1.5 py-0.5 rounded cursor-pointer hover:border hover:border-gray-800">

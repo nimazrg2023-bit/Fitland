@@ -49,7 +49,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="w-85/100 flex flex-col items-end mt-5 gap-2">
-                    <div className="flex justify-end text-white gap-10 text-[12px] font-medium">
+                    <div className="lg:flex hidden justify-end text-white gap-10 text-[12px] font-medium">
                         {footer.map((item, index) => (
                             <div className="flex flex-col gap-5 items-end" key={index}>
                                 <p className="text-[16px] font-bold">{item.title}</p>
@@ -108,7 +108,7 @@ export default function Footer() {
                         {showMore ? "مشاهده کمتر" : "مشاهده بیشتر..."}
                     </button>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col gap-5 items-center">
                     <div className="w-8/10 flex justify-between">
                         <NavLink className="w-27/100 rounded-[3px] size-10">
                             <img className="rounded-[3px]" src="/verify.jpg" alt="" />
