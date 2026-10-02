@@ -18,6 +18,7 @@ export const products = [
         id: 1,
         title: 'تیشرت زنانه کد 1717',
         image: '/1717.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 420000,
         oldPrice: 520000,
         rating: 4.5,
@@ -33,6 +34,7 @@ export const products = [
         id: 2,
         title: 'تیشرت زنانه کد 1777',
         image: '/1777.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 200000,
         oldPrice: 250000,
         rating: 4,
@@ -48,6 +50,7 @@ export const products = [
         id: 3,
         title: 'تیشرت زنانه کد 1757',
         image: '/1757.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 260000,
         oldPrice: 320000,
         rating: 5,
@@ -63,6 +66,7 @@ export const products = [
         id: 4,
         title: 'تیشرت زنانه کد 1807',
         image: '/1807.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 260000,
         oldPrice: 320000,
         rating: 3.5,
@@ -78,6 +82,7 @@ export const products = [
         id: 5,
         title: 'تیشرت زنانه کد 1817',
         image: '/1817.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 240000,
         oldPrice: 300000,
         rating: 4,
@@ -93,6 +98,7 @@ export const products = [
         id: 6,
         title: 'تیشرت زنانه کد 1727',
         image: '/1727.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 195000,
         oldPrice: 240000,
         rating: 3.5,
@@ -108,6 +114,7 @@ export const products = [
         id: 7,
         title: 'تیشرت زنانه کد 1737',
         image: '/1737.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 350000,
         oldPrice: 400000,
         rating: 5,
@@ -123,6 +130,7 @@ export const products = [
         id: 8,
         title: 'تیشرت زنانه کد 1747',
         image: '/1747.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 290000,
         oldPrice: 350000,
         rating: 3,
@@ -138,6 +146,7 @@ export const products = [
         id: 9,
         title: 'تیشرت زنانه کد 1757',
         image: '/1757.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 310000,
         oldPrice: 380000,
         rating: 4.5,
@@ -153,6 +162,7 @@ export const products = [
         id: 10,
         title: 'تیشرت زنانه کد 1778',
         image: '/1778.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 220000,
         oldPrice: 280000,
         rating: 4,
@@ -168,6 +178,7 @@ export const products = [
         id: 11,
         title: 'تیشرت زنانه کد 1797',
         image: '/1797.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 450000,
         oldPrice: 550000,
         rating: 5,
@@ -183,6 +194,7 @@ export const products = [
         id: 12,
         title: 'تیشرت زنانه کد 1827',
         image: '/1827.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 180000,
         oldPrice: 220000,
         rating: 4.5,
@@ -198,6 +210,7 @@ export const products = [
         id: 13,
         title: 'کفش نایک مدل ایر مکس',
         image: '/nike1.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 850000,
         oldPrice: 1200000,
         rating: 4.5,
@@ -212,6 +225,7 @@ export const products = [
         id: 14,
         title: 'ست ورزشی زنانه مدل زوم',
         image: '/nike2.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 650000,
         oldPrice: 950000,
         rating: 5,
@@ -226,6 +240,7 @@ export const products = [
         id: 15,
         title: 'هودی زنانه مدل اسپرت',
         image: '/nike3.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 480000,
         oldPrice: 600000,
         rating: 4,
@@ -240,6 +255,7 @@ export const products = [
         id: 16,
         title: 'کفش نایک مدل ایر فورس',
         image: '/nike4.jpg',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 920000,
         oldPrice: 1100000,
         rating: 4.5,
@@ -254,6 +270,7 @@ export const products = [
         id: 17,
         title: 'کفش نایک مدل دانک',
         image: '/nike5.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 880000,
         oldPrice: 1050000,
         rating: 5,
@@ -268,6 +285,7 @@ export const products = [
         id: 18,
         title: 'کفش نایک مدل ایر مکس ۱',
         image: '/nike6.png',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 950000,
         oldPrice: 1150000,
         rating: 4,
@@ -282,6 +300,7 @@ export const products = [
         id: 19,
         title: 'دوچرخه مدل AO-14',
         image: '/nike7.jpg',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 2000000,
         oldPrice: 2500000,
         rating: 4.5,
@@ -297,6 +316,7 @@ export const products = [
         id: 20,
         title: 'دوچرخه مدل S-2000',
         image: '/nike8.jpg',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 2000000,
         oldPrice: 2500000,
         rating: 4,
@@ -312,6 +332,7 @@ export const products = [
         id: 21,
         title: 'اسکوتر مدل A-155',
         image: '/nike9.jpg',
+        images: ['/nike1.png', '/nike2.png', '/nike3.png', '/nike4.jpg'],
         price: 3000000,
         oldPrice: 3500000,
         rating: 5,
@@ -323,12 +344,12 @@ export const products = [
         discount: 10,
         vip: true,
     },
-
 ];
 
 export const filteredsp = products.filter(item => item.id > 11 && item.id < 17)
 export const filteredsh = products.filter(item => item.id > 13 && item.id < 19)
 export const filteredsg = products.filter(item => item.id > 17)
+export const filteredlo = products.filter(item => item.id > 19)
 
 export const news = [
     { id: 1, image: "/news1.png", title: "شکست استرالیا در گام نخست جام جهانی فوتبال زنان", name: "تیم‌ها در روز اول مسابقات جام جهانی فوتبال زنان در شهر مادرید اسپانیا با یکدیگر به رقابت پرداختند" },
@@ -340,4 +361,11 @@ export const footer = [
     { id: 2, title: "محبوب‌ترین‌ها", name: ['لباس مردانه', 'کفش فوتبال', 'دوچرخه', 'لباس زنانه'] },
     { id: 3, title: "اطلاعات تماس", name: ['نشانی  تهران - تجریش - خیابان سالور', 'شماره تماس  3456789-021', 'پست الکترونیک  info@fitland.com', 'ساعت کاری  شنبه تا چهارشنبه 9 تا 17'] },
     { id: 4, title: "خدمات مشتریان", name: ['سوالات متداول', 'حریم خصوصی', 'گزارش ایراد در سایت', 'شرایط بازگرداندن محصول'] }
+]
+
+export const nazar = [
+    { id: 1, name: "رسول", rating: 4, title: "بسیار ممنونم از اینکه این کفش خوب رو برامون گذاشتید. خییلییی خفنه" },
+    { id: 2, name: "مهسا", rating: 1, title: "خیلی راضی نبودم. جنسش خوب نبود." },
+    { id: 3, name: "زهرا", rating: 3, title: "سلام دقیقااندازه ی سایز پامون سفارش بدیم یایه شماره کوچیکتر؟چون شنیدم این کفش‌ها به مرورجاباز میکنن!" }
+
 ]
