@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { filtered1, filtered2, menueopen } from "../../../../core/constant";
+import { useSelector } from "react-redux";
 
 export default function Header() {
     const [Home, setHome] = useState("unHome")
@@ -18,6 +19,9 @@ export default function Header() {
     const btnhandler = () => {
         setmenue("menue")
     }
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+    
     return (
         <div className="w-full gap-3 flex flex-col justify-center items-center">
             <nav className={` bg-[#032340] font-normal text-[12px] p-4  justify-center items-center  text-white ${Home === "Home" ? "flex" : "hidden"} w-full`}>
@@ -93,7 +97,17 @@ export default function Header() {
                 </div>
                 <div className="lg:flex hidden w-15/100 justify-center items-center flex-row-reverse gap-12 ">
                     <div className='flex gap-5 justify-center items-center shadow-2xl rounded-[10px] p-4'>
-                        <Link className='text-[18px] font-medium' to="/Register"> ثبت نام | ورود</Link>
+                        <Link className={` ${isLoggedIn ? "hidden" : "flex"} text-[18px] font-medium`} to="/Login"> ثبت نام | ورود</Link>
+                        <Link to={"/usersProfile"} className={`${isLoggedIn ? "flex" : "hidden"}`}>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.00099 11.1994C7.53432 11.1994 7.06766 11.0194 6.71432 10.6661L2.36766 6.31944C2.17432 6.12611 2.17432 5.80611 2.36766 5.61277C2.56099 5.41944 2.88099 5.41944 3.07432 5.61277L7.42099 9.95944C7.74099 10.2794 8.26099 10.2794 8.58099 9.95944L12.9277 5.61277C13.121 5.41944 13.441 5.41944 13.6343 5.61277C13.8277 5.80611 13.8277 6.12611 13.6343 6.31944L9.28766 10.6661C8.93432 11.0194 8.46766 11.1994 8.00099 11.1994Z" fill="#FA541C" />
+                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 12.75C8.83 12.75 6.25 10.17 6.25 7C6.25 3.83 8.83 1.25 12 1.25C15.17 1.25 17.75 3.83 17.75 7C17.75 10.17 15.17 12.75 12 12.75ZM12 2.75C9.66 2.75 7.75 4.66 7.75 7C7.75 9.34 9.66 11.25 12 11.25C14.34 11.25 16.25 9.34 16.25 7C16.25 4.66 14.34 2.75 12 2.75Z" fill="#404040" />
+                                <path d="M20.5901 22.75C20.1801 22.75 19.8401 22.41 19.8401 22C19.8401 18.55 16.3202 15.75 12.0002 15.75C7.68015 15.75 4.16016 18.55 4.16016 22C4.16016 22.41 3.82016 22.75 3.41016 22.75C3.00016 22.75 2.66016 22.41 2.66016 22C2.66016 17.73 6.85015 14.25 12.0002 14.25C17.1502 14.25 21.3401 17.73 21.3401 22C21.3401 22.41 21.0001 22.75 20.5901 22.75Z" fill="#404040" />
+                            </svg>
+                        </Link>
+
                     </div>
                     <div className='relative flex flex-col bottom-3'>
                         <p className='rounded-full  size-5 right-1 bottom-1 z-10  bg-blue-700 text-white relative flex justify-center items-center'>۰</p>
@@ -112,11 +126,11 @@ export default function Header() {
             <div className="lg:flex mt-10 justify-between w-9/10  rounded-2xl bg-[#F9F9F9] p-5 hidden">
                 <div className="flex flex-row-reverse gap-10 ml-5">
                     {filtered2.map((item, index) => (
-                    <p key={index}  className="font-[600] text-[14px]">{item.name}</p>
-                ))}
+                        <p key={index} className="font-[600] text-[14px]">{item.name}</p>
+                    ))}
                 </div>
                 <div className="flex flex-row-reverse gap-10 mr-5">
-                    {filtered1.map((item ,index) =>(
+                    {filtered1.map((item, index) => (
                         <p key={index} className="font-[600] text-[14px]">{item.name}</p>
                     ))}
                 </div>

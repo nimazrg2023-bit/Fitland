@@ -8,6 +8,10 @@ import Verify from "./Pages/LoginPages/Verify";
 import Product from "./Pages/Product";
 import SabadKharid from "./Pages/SabadKharid";
 import UsersProfile from "./Pages/usersProfile";
+import Orders from "./Pages/Orders";
+import Favorites from "./Pages/Favorites.jsx";
+import Addresses from "./Pages/Addresses.jsx/index.jsx";
+import Comments from "./Pages/Comments.jsx/index.jsx";
 
 export default function App() {
   return (
@@ -22,8 +26,17 @@ export default function App() {
         <Route path="/Product" element={<Product />} />
         <Route path="/SabadKharid" element={<SabadKharid />} />
         <Route path="/usersProfile" element={<UsersProfile />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/addresses" element={<Addresses />} />
+        <Route path="/comments" element={<Comments/>} />
+
       </Routes>
     </Layout>
 
   )
 }
+
+
+
+// این فایل رو تمام اتریبیوت هاش رو بیار تو یک خط و تمام کامنت ها رو پاک کن

@@ -1,13 +1,23 @@
 import { NavLink, useParams } from "react-router";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { filteredlo, filteredsg, nazar, products } from "../../core/constant";
+import { toggleFavorite, selectIsFavorite } from "../../Redux/slices/favoritesSlice";
+import { selectCurrentUser } from "../../Redux/slices/authSlice";
+import { addComment, selectUserComments } from "../../Redux/slices/commentsSlice";
 
 export default function Detail() {
     const { id } = useParams();
+    const dispatch = useDispatch();
+    const user = useSelector(selectCurrentUser);
     const product = products.find((item) => item.id === Number(id));
     const [quantity, setQuantity] = useState(1);
     const [size, setSize] = useState("");
     const [activeImage, setActiveImage] = useState(-1);
+    const userComments = useSelector(selectUserComments) || [];
+
+    // بررسی وضعیت علاقه‌مندی این محصول
+    const isFavorite = useSelector(selectIsFavorite(product?.id));
 
     if (!product) {
         return (
@@ -54,17 +64,65 @@ export default function Detail() {
     };
 
     const btnnazarhandler = () => {
-        if (title == !"") {
-            nazar.push({ id: Date.now(), name: name, title: title, email: email, rating: rating });
-            setName("");
-            setEmail("");
-            setTitle("");
-            setrating(0);
-            seter("");
-            setReviewUpdate((prev) => prev + 1);
-        } else {
-            seter("لطفا نظر خود را بتویسید");
+        // پاک کردن خطای قبلی
+        seter("");
+
+        // اعتبارسنجی نام
+        if (!name.trim()) {
+            seter("لطفا نام خود را وارد کنید");
+            return;
         }
+
+        // اعتبارسنجی ایمیل
+        if (!email.trim()) {
+            seter("لطفا ایمیل خود را وارد کنید");
+            return;
+        }
+
+        // اعتبارسنجی متن نظر
+        if (!title.trim()) {
+            seter("لطفا نظر خود را بنویسید");
+            return;
+        }
+
+        // اعتبارسنجی امتیاز
+        if (rating === 0) {
+            seter("لطفا امتیاز خود را انتخاب کنید");
+            return;
+        }
+
+        // بررسی لاگین بودن کاربر
+        if (!user) {
+            seter("لطفا ابتدا وارد حساب کاربری خود شوید");
+            return;
+        }
+
+        // ثبت نظر در Redux
+        dispatch(
+            addComment({
+                userId: user.id,
+                comment: {
+                    productId: product.id,
+                    productTitle: product.title,
+                    productImage: product.image,
+                    colorName: "مشکی",
+                    colorValue: product.colors?.[colorid] || "#000",
+                    rating: rating,
+                    text: title,
+                    name: name,
+                    email: email,
+                },
+            })
+        );
+
+        // ریست کردن فرم
+        setName("");
+        setEmail("");
+        setTitle("");
+        setrating(0);
+        seter("");
+        setReviewUpdate((prev) => prev + 1);
+        alert("دیدگاه شما با موفقیت ثبت شد.");
     };
 
     const [h, seth] = useState("150px");
@@ -78,6 +136,15 @@ export default function Detail() {
             seth("150px");
             setbtnmore("مشاهده بیشتر");
         }
+    };
+
+    // ─── هندل کردن کلیک روی قلب ───
+    const handleToggleFavorite = () => {
+        if (!user) {
+            alert("لطفا ابتدا وارد حساب کاربری خود شوید.");
+            return;
+        }
+        dispatch(toggleFavorite({ userId: user.id, product }));
     };
 
     return (
@@ -189,7 +256,7 @@ export default function Detail() {
                                 <path d="M18 0H2C0.89 0 0.00999999 0.89 0.00999999 2L0 14C0 15.11 0.89 16 2 16H12V14H2V8H20V2C20 0.89 19.11 0 18 0ZM18 4H2V2H18V4ZM22 13V15H19V18H17V15H14V13H17V10H19V13H22Z" fill="white" />
                             </svg>
                         </button>
-                        <button className="mr-10 max-sm:hidden flex">
+                        <button className="mr-10 max-sm:hidden flex" onClick={handleToggleFavorite}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.6216 13.0703C20.2416 13.0703 19.9216 12.7803 19.8716 12.4003C19.6316 10.1403 18.4116 8.09035 16.5316 6.79035C16.1916 6.55035 16.1116 6.09035 16.3416 5.75035C16.5816 5.41035 17.0516 5.33035 17.3816 5.56035C19.6216 7.11035 21.0616 9.55035 21.3516 12.2403C21.3916 12.6503 21.1016 13.0203 20.6816 13.0703C20.6716 13.0703 20.6416 13.0703 20.6216 13.0703Z" fill="#000306" />
                                 <path d="M3.49186 13.1203C3.46186 13.1203 3.44186 13.1203 3.41186 13.1203C3.00186 13.0703 2.70186 12.7003 2.74186 12.2903C3.01186 9.60026 4.44186 7.17026 6.65186 5.60026C6.99186 5.36026 7.46186 5.44026 7.70186 5.78026C7.94186 6.12026 7.86186 6.59026 7.52186 6.83026C5.66186 8.14026 4.46186 10.1903 4.23186 12.4503C4.20186 12.8303 3.87186 13.1203 3.49186 13.1203Z" fill="#000306" />
@@ -199,9 +266,14 @@ export default function Detail() {
                                 <path d="M19.1706 20.6704C17.2206 20.6704 15.6406 19.0904 15.6406 17.1404C15.6406 15.2004 17.2206 13.6104 19.1706 13.6104C21.1206 13.6104 22.7006 15.1904 22.7006 17.1404C22.6906 19.0804 21.1106 20.6704 19.1706 20.6704ZM19.1706 15.1104C18.0506 15.1104 17.1406 16.0204 17.1406 17.1404C17.1406 18.2604 18.0506 19.1704 19.1706 19.1704C20.2906 19.1704 21.2006 18.2604 21.2006 17.1404C21.1906 16.0204 20.2906 15.1104 19.1706 15.1104Z" fill="#000306" />
                             </svg>
                         </button>
-                        <button className="max-sm:hidden">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21.6496C11.69 21.6496 11.39 21.6096 11.14 21.5196C7.32 20.2096 1.25 15.5596 1.25 8.68961C1.25 5.18961 4.08 2.34961 7.56 2.34961C9.25 2.34961 10.83 3.00961 12 4.18961C13.17 3.00961 14.75 2.34961 16.44 2.34961C19.92 2.34961 22.75 5.19961 22.75 8.68961C22.75 15.5696 16.68 20.2096 12.86 21.5196C12.61 21.6096 12.31 21.6496 12 21.6496ZM7.56 3.84961C4.91 3.84961 2.75 6.01961 2.75 8.68961C2.75 15.5196 9.32 19.3196 11.63 20.1096C11.81 20.1696 12.2 20.1696 12.38 20.1096C14.68 19.3196 21.26 15.5296 21.26 8.68961C21.26 6.0196 19.1 3.84961 16.45 3.84961C14.93 3.84961 13.52 4.55961 12.61 5.78961C12.33 6.16961 11.69 6.16961 11.41 5.78961C10.48 4.54961 9.08 3.84961 7.56 3.84961Z" fill="#404040" />
+                        <button className="max-sm:hidden" onClick={handleToggleFavorite}>
+                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                    fill={isFavorite ? "#FF0000" : "none"}
+                                    stroke={isFavorite ? "#FF0000" : "#404040"}
+                                    strokeWidth="1.8"
+                                />
                             </svg>
                         </button>
                     </div>
@@ -297,10 +369,22 @@ export default function Detail() {
                                         <textarea rows={5} value={title} onChange={(e) => setTitle(e.target.value)} className="w-full border border-gray-300 rounded-lg p-3 outline-none resize-none focus:border-blue-500 max-sm:h-[42px]" />
                                     </div>
                                     <div className="flex flex-row-reverse">
-                                        <button onClick={btnnazarhandler} type="button" className="w-5/10  text-[#FA541C] border-2 cursor-pointer hover:bg-orange-600 hover:text-white border-[#FA541C] rounded-lg py-3  transition">ثبت نظر و امتیاز</button>
-                                        <div className="flex w-5/10 items-center gap-5  mt-3">
+                                        <button
+                                            onClick={btnnazarhandler}
+                                            type="button"
+                                            className="w-5/10 text-[#FA541C] border-2 cursor-pointer hover:bg-orange-600 hover:text-white border-[#FA541C] rounded-lg py-3 transition"
+                                        >
+                                            ثبت نظر و امتیاز
+                                        </button>                                        <div className="flex w-5/10 items-center gap-5 mt-3">
                                             {[1, 2, 3, 4, 5].map((t) => (
-                                                <button key={t} type="button" onBlur={() => setrating(0)} className={`text-2xl transition ${t <= rating ? "text-orange-400" : "text-gray-200"}`} onClick={() => btnratinghandler(t)}>★</button>
+                                                <button
+                                                    key={t}
+                                                    type="button"
+                                                    className={`text-2xl transition ${t <= rating ? "text-orange-400" : "text-gray-200"}`}
+                                                    onClick={() => btnratinghandler(t)}
+                                                >
+                                                    ★
+                                                </button>
                                             ))}
                                         </div>
                                     </div>
@@ -308,22 +392,32 @@ export default function Detail() {
                                 </form>
                             </div>
                             <div className="lg:col-span-2 w-65/100 max-sm:w-full flex flex-col gap-4">
-                                {nazar.map((item) => (
+                                {/* ترکیب نظرات پیش‌فرض و نظرات ثبت‌شده توسط کاربران */}
+                                {[...nazar, ...userComments].map((item) => (
                                     <div key={item.id} className="border border-gray-200 rounded-xl p-5 bg-white">
                                         <div className="flex items-center justify-between mb-5">
                                             <div className="flex items-center gap-3">
-                                                <img src="/nike2.png" alt={item.name} className="w-12 h-12 rounded-full object-cover" />
+                                                <img
+                                                    src={item.avatar || "/nike2.png"}
+                                                    alt={item.name}
+                                                    className="w-12 h-12 rounded-full object-cover"
+                                                />
                                                 <div>
                                                     <h4 className="font-semibold text-gray-800">{item.name}</h4>
                                                 </div>
                                             </div>
-                                            <div className="text-lg">
+                                            <div className="text-lg" dir="ltr">
                                                 {[1, 2, 3, 4, 5].map((t) => (
-                                                    <span key={t} className={t <= item.rating ? "text-orange-400" : "text-gray-200"}>★</span>
+                                                    <span
+                                                        key={t}
+                                                        className={t <= (item.rating || 0) ? "text-orange-400" : "text-gray-200"}
+                                                    >
+                                                        ★
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
-                                        <p className="text-gray-600 text-sm md:text-base leading-7">{item.title}</p>
+                                        <p className="text-gray-600 text-sm md:text-base leading-7">{item.text || item.title}</p>
                                     </div>
                                 ))}
                             </div>
