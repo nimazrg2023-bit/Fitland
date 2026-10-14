@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { filtered1, filtered2, menueopen } from "../../../../core/constant";
 import { useSelector } from "react-redux";
+import { selectCartItemCount } from "../../../../Redux/slices/cartSlice";
 
 export default function Header() {
     const [Home, setHome] = useState("unHome")
     const [menue, setmenue] = useState("unmenue")
+    const itemCount = useSelector(selectCartItemCount);
     const location = useLocation();
 
     const isHome = location.pathname === "/";
@@ -21,7 +23,7 @@ export default function Header() {
     }
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-    
+
     return (
         <div className="w-full gap-3 flex flex-col justify-center items-center">
             <nav className={` bg-[#032340] font-normal text-[12px] p-4  justify-center items-center  text-white ${Home === "Home" ? "flex" : "hidden"} w-full`}>
@@ -110,8 +112,8 @@ export default function Header() {
 
                     </div>
                     <div className='relative flex flex-col bottom-3'>
-                        <p className='rounded-full  size-5 right-1 bottom-1 z-10  bg-blue-700 text-white relative flex justify-center items-center'>۰</p>
-                        <Link to="/sabadKharid" className='absolute size-12 bg-[#FA541C] flex justify-center items-center rounded-[10px]'>
+                        <p className='rounded-full  size-5 right-1 bottom-1 z-10  bg-blue-700 text-white relative flex justify-center items-center'>{itemCount.toLocaleString('fa-IR')}</p>
+                        <Link to="/cart" className='absolute size-12 bg-[#FA541C] flex justify-center items-center rounded-[10px]'>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.5 8.6303C16.09 8.6303 15.75 8.2903 15.75 7.8803V6.5003C15.75 5.4503 15.3 4.4303 14.52 3.7203C13.73 3.0003 12.71 2.6703 11.63 2.7703C9.83 2.9403 8.25 4.7803 8.25 6.7003V7.6703C8.25 8.0803 7.91 8.4203 7.5 8.4203C7.09 8.4203 6.75 8.0803 6.75 7.6703V6.6903C6.75 4.0003 8.92 1.5203 11.49 1.2703C12.99 1.1303 14.43 1.6003 15.53 2.6103C16.62 3.6003 17.25 5.0203 17.25 6.5003V7.8803C17.25 8.2903 16.91 8.6303 16.5 8.6303Z" fill="white" />
                                 <path d="M15.0037 22.75H9.00372C4.38372 22.75 3.52372 20.6 3.30372 18.51L2.55372 12.52C2.44372 11.44 2.40372 9.89 3.45372 8.73C4.35372 7.73 5.84372 7.25 8.00372 7.25H16.0037C18.1737 7.25 19.6637 7.74 20.5537 8.73C21.5937 9.89 21.5637 11.44 21.4537 12.5L20.7037 18.51C20.4837 20.6 19.6237 22.75 15.0037 22.75ZM8.00372 8.75C6.31372 8.75 5.15372 9.08 4.56372 9.74C4.07372 10.28 3.91372 11.11 4.04372 12.35L4.79372 18.34C4.96372 19.94 5.40372 21.26 9.00372 21.26H15.0037C18.6037 21.26 19.0437 19.95 19.2137 18.36L19.9637 12.35C20.0937 11.13 19.9337 10.3 19.4437 9.75C18.8537 9.08 17.6937 8.75 16.0037 8.75H8.00372Z" fill="white" />

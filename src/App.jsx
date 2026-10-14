@@ -6,12 +6,15 @@ import Login from "./Pages/LoginPages/Login";
 import Register from "./Pages/LoginPages/Register";
 import Verify from "./Pages/LoginPages/Verify";
 import Product from "./Pages/Product";
-import SabadKharid from "./Pages/SabadKharid";
 import UsersProfile from "./Pages/usersProfile";
 import Orders from "./Pages/Orders";
 import Favorites from "./Pages/Favorites.jsx";
 import Addresses from "./Pages/Addresses.jsx/index.jsx";
 import Comments from "./Pages/Comments.jsx/index.jsx";
+import Cart from "./Pages/SabadKharid/index.jsx";
+import CheckoutAddress from "./Pages/SabadKharid/components/CheckoutAddress.jsx";
+import CheckoutPayment from "./Pages/SabadKharid/components/CheckoutPayment.jsx";
+import CheckoutSuccess from "./Pages/SabadKharid/components/CheckoutSuccess.jsx";
 
 export default function App() {
   return (
@@ -24,13 +27,16 @@ export default function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Verify" element={<Verify />} />
         <Route path="/Product" element={<Product />} />
-        <Route path="/SabadKharid" element={<SabadKharid />} />
+
         <Route path="/usersProfile" element={<UsersProfile />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/addresses" element={<Addresses />} />
-        <Route path="/comments" element={<Comments/>} />
-
+        <Route path="/comments" element={<Comments />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout/address" element={<CheckoutAddress />} />
+        <Route path="/checkout/payment" element={<CheckoutPayment />} />
+        <Route path="/checkout/success" element={<CheckoutSuccess />} />  
       </Routes>
     </Layout>
 

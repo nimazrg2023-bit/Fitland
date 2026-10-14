@@ -8,11 +8,10 @@ import ordersReducer from "./slices/ordersSlice.js";
 import commentsReducer from "./slices/commentsSlice.js";
 import favoritesReducer from './slices/favoritesSlice.js';
 import addressesReducer from "./slices/addressesSlice.js";
+import cartReducer from "./slices/cartSlice.js";
 
-const rootReducer = combineReducers({ auth: authReducer, orders: ordersReducer, comments: commentsReducer, favorites: favoritesReducer, addresses: addressesReducer });
-
-const persistConfig = { key: "root", storage, whitelist: ["auth", "orders", "comments", "favorites", "addresses"] };
-
+const rootReducer = combineReducers({ auth: authReducer, orders: ordersReducer, comments: commentsReducer, favorites: favoritesReducer, addresses: addressesReducer, cart: cartReducer });
+const persistConfig = { key: "root", storage, whitelist: ["auth", "orders", "comments", "favorites", "addresses", "cart"] };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
