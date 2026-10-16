@@ -26,7 +26,7 @@ export default function CheckoutAddress() {
   const handleCloseForm = () => { setShowForm(false); setEditingAddress(null); };
 
   return (
-    <div className="min-h-screen bg-white" dir="rtl">
+    <div className="min-h-screen bg-white" dir="trl">
       <div className="w-90/100 mx-auto py-10">
         <div className="flex gap-6 flex-col lg:flex-row">
           <aside className="lg:w-3/10 flex flex-col gap-4" dir="rtl">

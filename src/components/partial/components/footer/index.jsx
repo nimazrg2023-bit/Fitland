@@ -52,11 +52,11 @@ export default function Footer() {
                     <div className="lg:flex hidden justify-end text-white gap-10 text-[12px] font-medium">
                         {footer.map((item, index) => (
                             <div className="flex flex-col gap-5 items-end" key={index}>
-                                <p className="text-[16px] font-bold">{item.title}</p>
+                                <NavLink to={"/FAQ"}  className="text-[16px] font-bold">{item.title}</NavLink  >
                                 <div className="flex flex-col gap-5">
                                     {item.name.map((name, index) => (
                                         <div key={index} className="flex items-center gap-3 justify-end">
-                                            <p>{name}</p>
+                                            <NavLink to={"/FAQ"} >{name}</NavLink  >
                                             <div className="size-1 bg-white rounded-full"></div>
                                         </div>
                                     ))}
@@ -69,9 +69,9 @@ export default function Footer() {
                         {footer.map((item, index) => (
                             <div className="w-full flex flex-col items-end">
                                 <div key={item.id} className="w-full items-center border-b pb-4 border-[#194165] flex flex-row-reverse justify-between">
-                                    <p className="text-white text-[14px] font-medium">{item.title}</p>
-                                    <button onClick={() => btnhandler(item)}>
-                                        <svg className={`${FooterId.includes(item.id) ? "rotate-180" : "rotate-0"}`} width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <NavLink to={"/FAQ"} className="text-white text-[14px] font-medium">{item.title}</NavLink>
+                                    <button className="cursor-pointer" onClick={() => btnhandler(item)}>
+                                        <svg className={`${FooterId.includes(item.id) ? "rotate-180" : "rotate-0"}  `} width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9.5026 18.0111C4.80802 18.0111 0.992188 14.1952 0.992188 9.50065C0.992188 4.80607 4.80802 0.990234 9.5026 0.990234C14.1972 0.990234 18.013 4.80607 18.013 9.50065C18.013 14.1952 14.1972 18.0111 9.5026 18.0111ZM9.5026 2.17773C5.4651 2.17773 2.17969 5.46315 2.17969 9.50065C2.17969 13.5382 5.4651 16.8236 9.5026 16.8236C13.5401 16.8236 16.8255 13.5382 16.8255 9.50065C16.8255 5.46315 13.5401 2.17773 9.5026 2.17773Z" fill="#EDEDED" />
                                             <path d="M9.50354 11.8824C9.35313 11.8824 9.20271 11.827 9.08396 11.7083L6.28938 8.9137C6.05979 8.68411 6.05979 8.30411 6.28938 8.07453C6.51896 7.84495 6.89896 7.84495 7.12854 8.07453L9.50354 10.4495L11.8785 8.07453C12.1081 7.84495 12.4881 7.84495 12.7177 8.07453C12.9473 8.30411 12.9473 8.68411 12.7177 8.9137L9.92313 11.7083C9.80437 11.827 9.65396 11.8824 9.50354 11.8824Z" fill="#EDEDED" />
                                         </svg>
@@ -80,7 +80,7 @@ export default function Footer() {
                                 </div>
                                 <div onBlur={() => setFooterId([])} className={` mt-5 flex flex-col items-end gap-5 ${FooterId.includes(item.id) ? "flex flex-col" : "hidden"}`}>
                                     {item.name.map((name, index) => (
-                                        <p className="text-white cursor-pointer hover:bg-white hover:text-black  rounded-2xl text-right text-[12px]" key={index}>{name}</p>
+                                        <NavLink to={"/FAQ"} className="text-white cursor-pointer hover:bg-white hover:text-black  rounded-2xl text-right text-[12px]" key={index}>{name}</NavLink>
                                     ))}
                                 </div>
                             </div>

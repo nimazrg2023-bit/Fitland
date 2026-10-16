@@ -15,6 +15,7 @@ import Cart from "./Pages/SabadKharid/index.jsx";
 import CheckoutAddress from "./Pages/SabadKharid/components/CheckoutAddress.jsx";
 import CheckoutPayment from "./Pages/SabadKharid/components/CheckoutPayment.jsx";
 import CheckoutSuccess from "./Pages/SabadKharid/components/CheckoutSuccess.jsx";
+import FAQ from "./Pages/FAQ/index.jsx";
 
 export default function App() {
   return (
@@ -36,7 +37,9 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout/address" element={<CheckoutAddress />} />
         <Route path="/checkout/payment" element={<CheckoutPayment />} />
-        <Route path="/checkout/success" element={<CheckoutSuccess />} />  
+        <Route path="/checkout/success" element={<CheckoutSuccess />} />
+        <Route path="/FAQ" element={<FAQ />} />  
+
       </Routes>
     </Layout>
 
