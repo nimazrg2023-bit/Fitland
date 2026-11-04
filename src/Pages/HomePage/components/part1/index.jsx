@@ -10,7 +10,7 @@ export default function Part1() {
                 <p className="lg:font-bold font-medium text-[10px] lg:text-[16px] text-[#606060]">!راحت و مطمئن خرید کنید</p>
                 <p className="lg:text-[32px] text-[16px] text-[#032340] font-semibold">همراه تو در مسیر سلامتی</p>
                 <p className="font-semibold text-right text-[#FA541C] text-[18px] lg:text-[32px]">!سهم بزرگ خودتان را امروز بگیرید</p>
-                <p className="lg:font-bold w-7/10 lg:text-[16px] font-medium text-[12px] text-[#606060] text-right">بزرگترین حراج فصل فیت لند همین حالا شرع کن و محصولات با یه تخفیف شگفت انگیز بخر</p>
+                <p className="lg:font-bold w-10/10 lg:text-[16px] font-medium text-[12px] text-[#606060] text-right">بزرگترین حراج فصل فیت لند همین حالا شرع کن و محصولات با یه تخفیف شگفت انگیز بخر</p>
                 <button className="flex text-[12px] font-normal lg:text-[16px] lg:font-semibold lg:p-4 text-white bg-[#032340] gap-2 rounded-2xl p-2 justify-center items-center lg:w-4/10 w-65/100">
                     <NavLink to={"/product"} > مشاهده  محصولات</NavLink>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@ export default function Part1() {
                 </button>
             </div>
             <div className="w-20/100">
-                <img className="w-100/100 top-35 lg:top-45 lg:left-90 right-10 absolute" src="/runner.png" alt="" />
+                <img className="w-100/100 top-40 lg:top-45 lg:left-90 right-3 absolute" src="/runner.png" alt="" />
             </div>
             <div className="hidden flex-col gap-8 mt-10 w-22/100 lg:flex">
                 <div className="flex gap-3 justify-end">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { filtered1, filtered2, menueopen } from "../../../../core/constant";
 import { useSelector } from "react-redux";
 import { selectCartItemCount } from "../../../../Redux/slices/cartSlice";
@@ -25,7 +25,7 @@ export default function Header() {
 
 
     return (
-        <div className="w-full gap-3 flex flex-col justify-center items-center">
+        <div className={`w-full ${ Home === "unHome" ?  "max-sm:mt-5" : "max-sm:mt-0"} gap-3 flex flex-col justify-center items-center`}>
             <nav className={` bg-[#032340] font-normal text-[12px] p-4  justify-center items-center  text-white ${Home === "Home" ? "flex" : "hidden"} w-full`}>
                 (: با عضویت در فیت لند اولین ارسال را مهمون ما باش
             </nav>
@@ -39,7 +39,15 @@ export default function Header() {
                     <div className={`lg:hidden w-5/10 bg-[#032340] left-2 rounded-2xl fixed flex-col   z-11  ${menue === "menue" ? "flex" : "hidden"}`}>
                         {menueopen.map((item, index) => (
                             <p key={index} className="text-white border-b border-white p-3 text-[12px]">{item.name}</p>
+                            
                         ))}
+                        <NavLink to={"/Login"} className={`text-white ${isLoggedIn ? "hidden" : "flex"} border-b text-white border-white p-3 text-[12px]`}>
+                            ثبت نام | ورود
+                        </NavLink>
+                        <NavLink to={"/Profile"} className={`${isLoggedIn ? "flex" : "hidden"} border-b text-white border-white p-3 text-[12px]`}>
+                            پروفایل
+                        </NavLink>
+                        
                     </div>
                     <Link className="flex lg:hidden" to={"/"}>
                         <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">

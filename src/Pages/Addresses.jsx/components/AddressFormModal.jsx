@@ -39,7 +39,7 @@ export default function AddressFormModal({ onClose }) {
 
     return (
         <>
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-40 overflow-y-auto py-10">
+            <div className="fixed pt-90 inset-0 bg-black/50 flex items-center justify-center z-40 overflow-y-auto py-10">
                 <div className="bg-white rounded-2xl w-[90%] max-w-3xl p-6 relative">
                     <button onClick={onClose} className="absolute top-4 left-4 size-4 text-[9px] flex items-center justify-center rounded-md border hover:bg-gray-100">✕</button>
                     <h2 className="text-xl font-bold mb-6 text-right">جزئیات آدرس شما</h2>
@@ -98,9 +98,9 @@ export default function AddressFormModal({ onClose }) {
                         </div>
 
                         <p className="text-right w-full text-gray-700">به چه کسی تحویل داده شود:</p>
-                        <div className="grid border w-full border-[#ADADAD] rounded-2xl p-5 grid-cols-2 gap-4">
+                        <div className="grid max-sm:items-center border w-full border-[#ADADAD] rounded-2xl p-5 grid-cols-2 gap-4">
                             <div className="flex flex-col gap-1">
-                                <label className="text-right text-sm text-gray-600">نام و نام خانوادگی گیرنده</label>
+                                <label className="text-right max-sm:text-[10px] text-sm text-gray-600">نام و نام خانوادگی گیرنده</label>
                                 <input name="receiverName" value={formik.values.receiverName} onChange={formik.handleChange} onBlur={formik.handleBlur} className="border rounded-lg p-3 outline-none focus:border-blue-500" />
                                 {formik.touched.receiverName && formik.errors.receiverName && (<p className="text-red-500 text-xs text-right">{formik.errors.receiverName}</p>)}
                             </div>

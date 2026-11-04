@@ -1,9 +1,9 @@
 export default function Part11() {
     return (
-            <div dir="ltr" className="hidden lg:flex mt-20 w-full flex-col-reverse p-10 items-center pt-15 bg-[#F4FAFF]">
+            <div dir="ltr" className=" lg:flex mt-20 w-full flex-col-reverse p-10 items-center pt-15 bg-[#F4FAFF]">
                 <div className="flex  max-sm:flex-col-reverse items-center gap-5 lg:gap-0">
                     <p className="text-center lg:text-right font-medium lg:text-[28px] lg:w-4/10 lg:leading-12 w-8/10">با بیش از ده سال سابقه فروش لوازم ورزشی و لباس های ورزشی</p>
-                    <div className="flex w-8/10 justify-around  lg:justify-center gap-8 ">
+                    <div className="flex w-10/10 lg:w-8/10 justify-around  lg:justify-center gap-8 ">
                         <div className="w-25/100 lg:w-25/100 gap-4 max-sm:gap-1  lg:gap-10  flex bg-white lg:p-5 p-2  flex-col border border-[#CFE8FF] rounded-2xl items-center">
                             <svg className="flex lg:hidden" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18.8632 6.18626L11.9332 0.646255C10.8632 -0.213745 9.13319 -0.213745 8.07319 0.636256L1.14319 6.18626C0.363195 6.80626 -0.136805 8.11625 0.0331948 9.09626L1.36319 17.0563C1.60319 18.4763 2.96319 19.6263 4.40319 19.6263H15.6032C17.0332 19.6263 18.4032 18.4663 18.6432 17.0563L19.9732 9.09626C20.1332 8.11625 19.6332 6.80626 18.8632 6.18626ZM10.0032 13.3163C8.62319 13.3163 7.50319 12.1963 7.50319 10.8163C7.50319 9.43626 8.62319 8.31626 10.0032 8.31626C11.3832 8.31626 12.5032 9.43626 12.5032 10.8163C12.5032 12.1963 11.3832 13.3163 10.0032 13.3163Z" fill="#2F5F8A" />
@@ -11,7 +11,7 @@ export default function Part11() {
                             <svg className="hidden lg:flex" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M37.7264 12.3725L23.8664 1.29251C21.7264 -0.427489 18.2664 -0.427489 16.1464 1.27251L2.28639 12.3725C0.72639 13.6125 -0.273611 16.2325 0.0663895 18.1925L2.72639 34.1125C3.20639 36.9525 5.92639 39.2525 8.80639 39.2525H31.2064C34.0664 39.2525 36.8064 36.9325 37.2864 34.1125L39.9464 18.1925C40.2664 16.2325 39.2664 13.6125 37.7264 12.3725ZM20.0064 26.6325C17.2464 26.6325 15.0064 24.3925 15.0064 21.6325C15.0064 18.8725 17.2464 16.6325 20.0064 16.6325C22.7664 16.6325 25.0064 18.8725 25.0064 21.6325C25.0064 24.3925 22.7664 26.6325 20.0064 26.6325Z" fill="#2F5F8A" />
                             </svg>
-                            <p className="flex w-8/10 text-[12px] lg:gap-1 lg:flex-row-reverse  lg:pb-5 lg:text-[18px] lg:font-semibold text-[#032340] font-normal items-center max-sm:flex-col">پرداخت<span className="">در منزل</span></p>
+                            <p className="flex w-8/10 text-[12px] lg:gap-1 lg:flex-row-reverse  lg:pb-5 lg:text-[15px] lg:font-semibold text-[#032340] font-normal items-center max-sm:flex-col">پرداخت<span className="w-full">درب منزل</span></p>
                         </div>
                         <div className="w-25/100 lg:w-25/100 gap-4 max-sm:gap-1  lg:gap-10  flex bg-white lg:p-5 p-2  flex-col border border-[#CFE8FF] rounded-2xl items-center">
                             <svg className="flex lg:hidden" width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">

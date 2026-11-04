@@ -12,7 +12,7 @@ export default function Footer() {
     }
     return (
         <div className="w-full  bg-[#021526] flex flex-col items-center">
-            <div className="w-full lg:justify-around p-15 lg:w-95/100  flex max-sm:flex-col items-center">
+            <div className="w-full lg:justify-around lg:p-15   lg:w-95/100  flex max-sm:flex-col items-center">
                 <div className="w-8/10 lg:w-3/10 mt-10 gap-5 flex flex-col lg:items-end items-center">
                     <p className="text-[14px]  text-white font-bold">برای دریافت تخفیف های بیشتر ما را دنبال کنید</p>
                     <div className="flex w-full justify-around items-center ">

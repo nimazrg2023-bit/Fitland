@@ -152,7 +152,7 @@ export default function Product() {
 
     return (
         <div dir="rtl" className="w-full mt-10 mb-10">
-            <div className="w-[85%] flex mx-auto mb-8">
+            <div className="w-[85%] max-sm:hidden flex mx-auto mb-8">
                 <div className="flex items-center justify-end gap-3 text-sm text-gray-400">
                     <span>زنانه</span>
                     <span>←</span>

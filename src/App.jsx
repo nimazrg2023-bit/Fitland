@@ -16,6 +16,8 @@ import CheckoutAddress from "./Pages/SabadKharid/components/CheckoutAddress.jsx"
 import CheckoutPayment from "./Pages/SabadKharid/components/CheckoutPayment.jsx";
 import CheckoutSuccess from "./Pages/SabadKharid/components/CheckoutSuccess.jsx";
 import FAQ from "./Pages/FAQ/index.jsx";
+import Profile from "./Pages/Profile/index.jsx";
+import Faild from "./Pages/PageFaild/index.jsx";
 
 export default function App() {
   return (
@@ -28,7 +30,6 @@ export default function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Verify" element={<Verify />} />
         <Route path="/Product" element={<Product />} />
-
         <Route path="/usersProfile" element={<UsersProfile />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/favorites" element={<Favorites />} />
@@ -38,7 +39,12 @@ export default function App() {
         <Route path="/checkout/address" element={<CheckoutAddress />} />
         <Route path="/checkout/payment" element={<CheckoutPayment />} />
         <Route path="/checkout/success" element={<CheckoutSuccess />} />
-        <Route path="/FAQ" element={<FAQ />} />  
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/Profile" element={<Profile />} />  
+        <Route path="*" element={<Faild />} />
+
+
+
 
       </Routes>
     </Layout>
@@ -48,4 +54,3 @@ export default function App() {
 
 
 
-// این فایل رو تمام اتریبیوت هاش رو بیار تو یک خط و تمام کامنت ها رو پاک کن

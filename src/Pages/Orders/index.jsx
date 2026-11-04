@@ -28,9 +28,9 @@ export default function Orders() {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-white px-4 py-10" dir="rtl">
-      <div className="w-95/100 flex gap-6 mt-10">
+      <div className="w-95/100 flex gap-6 mt-10 flex-col lg:flex-row">
 
-        <aside className="lg:col-span-1 w-4/10 rounded-2xl p-6 flex flex-col items-center gap-4">
+        <aside className="hidden lg:flex lg:col-span-1 w-4/10 rounded-2xl p-6 flex-col items-center gap-4">
           <div className="w-full bg-gradient-to-t from-white to-[#FEEEE8] flex flex-col items-center rounded-2xl p-10 gap-4">
             <div className="relative">
               <img src={user?.avatar || "/nike2.png"} alt={user?.name} className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md" />
@@ -53,12 +53,20 @@ export default function Orders() {
           </nav>
         </aside>
 
-        <section className={`lg:col-span-3 rounded-2xl pt-5 w-full ${selectedOrder ? "border border-gray-500" : ""}`}>
-          <div className="flex items-center justify-between">
+        <section className={`lg:col-span-3 rounded-2xl pt-5 w-full ${selectedOrder ? "lg:border lg:border-gray-500" : ""}`}>
+          <div className="flex items-center justify-between mb-4 lg:mb-0">
             {!selectedOrder ?
-              <h2 className="text-2xl flex flex-row-reverse items-center justify-between w-19/100 font-bold">تاریخچه سفارشات <div className="h-2 w-2 bg-black rounded-full"></div></h2>
+              <>
+                <h2 className="hidden lg:flex text-2xl flex-row-reverse items-center justify-between w-19/100 font-bold">تاریخچه سفارشات <div className="h-2 w-2 bg-black rounded-full"></div></h2>
+                <div className="lg:hidden flex items-center justify-between w-full pb-4 border-b border-gray-200">
+                  <h2 className="text-xl font-bold">تاریخچه سفارشات</h2>
+                  <button onClick={() => navigate(-1)} className="text-[#032340]">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+                  </button>
+                </div>
+              </>
               :
-              <h2 className="text-2xl border-b border-gray-500 flex flex-row-reverse items-center justify-end gap-2 mb-2 pb-4 w-full font-bold">
+              <h2 className="text-xl lg:text-2xl border-b border-gray-500 flex flex-row-reverse items-center justify-end gap-2 mb-2 pb-4 w-full font-bold">
                 اطلاعات سفارش
                 <button onClick={handleBackToList} className="flex items-center cursor-pointer gap-2 text-gray-500 hover:text-black transition w-fit"><ArrowRightIcon /></button>
               </h2>
@@ -67,7 +75,7 @@ export default function Orders() {
 
           {!selectedOrder ? (
             <div className="flex flex-col gap-6">
-              <div className="flex flex-wrap items-center gap-4 p-4 rounded-xl border border-gray-100">
+              <div className="flex flex-wrap items-center gap-2 lg:gap-4 p-2 lg:p-4 rounded-xl lg:border lg:border-gray-100">
                 <TabButton label="جاری" count={counts.current} isActive={activeTab === "current"} onClick={() => setActiveTab("current")} />
                 <TabButton label="تحویل شده" count={counts.delivered} isActive={activeTab === "delivered"} onClick={() => setActiveTab("delivered")} />
                 <TabButton label="مرجوع شده" count={counts.returned} isActive={activeTab === "returned"} onClick={() => setActiveTab("returned")} />
@@ -94,18 +102,16 @@ export default function Orders() {
         </section>
       </div>
 
-      {showLogoutModal && (
-        <LogoutModal onCancel={() => setShowLogoutModal(false)} onConfirm={handleLogout} />
-      )}
+      {showLogoutModal && (<LogoutModal onCancel={() => setShowLogoutModal(false)} onConfirm={handleLogout} />)}
     </div>
   );
 }
 
 function TabButton({ label, count, isActive, onClick }) {
   return (
-    <button onClick={onClick} className={`flex items-center px-4 py-1 gap-1 rounded-lg text-[18px] font-medium transition ${isActive ? "bg-[#E6F0FF] text-[#194165]" : "text-gray-500 hover:bg-gray-100"}`}>
+    <button onClick={onClick} className={`flex items-center px-3 lg:px-4 py-1 gap-1 rounded-lg text-[14px] lg:text-[18px] font-medium transition ${isActive ? "bg-[#E6F0FF] text-[#194165]" : "text-gray-500 hover:bg-gray-100"}`}>
       <span>{label}</span>
-      <span className={`text-[18px] rounded-full ${isActive ? "text-[#194165]" : "text-gray-600"}`}>{count}</span>
+      <span className={`text-[14px] lg:text-[18px] rounded-full ${isActive ? "text-[#194165]" : "text-gray-600"}`}>{count}</span>
     </button>
   );
 }
@@ -113,21 +119,19 @@ function TabButton({ label, count, isActive, onClick }) {
 function OrderSummaryCard({ order, onViewDetails }) {
   return (
     <div className="border border-gray-200 rounded-xl flex flex-col gap-4 hover:shadow-sm transition bg-white">
-      <div className="flex items-center justify-between bg-[#F1F8F9] p-8 rounded-t-lg text-sm">
-        <div className="flex items-center gap-6 text-gray-600">
-          <span className="text-gray-800 gap-1 flex font-bold">
-            {order.createdAt ? new Intl.DateTimeFormat("fa-IR", { year: "numeric", month: "long", day: "numeric" }).format(new Date(order.createdAt)) : "—"}
-          </span>
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-[#F1F8F9] p-5 lg:p-8 rounded-t-lg text-sm gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-6 text-gray-600">
+          <span className="text-gray-800 font-bold">{order.createdAt ? new Intl.DateTimeFormat("fa-IR", { year: "numeric", month: "long", day: "numeric" }).format(new Date(order.createdAt)) : "—"}</span>
           <span className="font-bold text-gray-600">کد سفارش: <span className="text-gray-800">{order.id?.toString().slice(0, 6) || "131313170"}</span></span>
-          <span className="flex gap-1">مبلغ پرداخت شده: <span className="text-gray-800 gap-1 flex font-bold">{order.total?.toLocaleString() || "1,800,000"}تومان</span></span>
-          <span className="flex gap-1">تخفیف: <span className="text-gray-800 gap-1 flex font-bold">{order.discount?.toLocaleString() || "240,000"}تومان</span></span>
+          <span className="flex gap-1">مبلغ پرداخت شده: <span className="text-gray-800 font-bold">{order.finalPrice?.toLocaleString("fa-IR") || "۱,۸۰۰,۰۰۰"} تومان</span></span>
+          <span className="flex gap-1">تخفیف: <span className="text-gray-800 font-bold">{order.totalDiscount?.toLocaleString("fa-IR") || "۲۴۰,۰۰۰"} تومان</span></span>
         </div>
-        <button onClick={onViewDetails} className="text-[#194165] font-semibold hover:underline">مشاهده سفارش</button>
+        <button onClick={onViewDetails} className="text-[#194165] font-semibold hover:underline lg:mt-0 mt-2 text-right">مشاهده سفارش</button>
       </div>
 
       <div className="flex gap-4 overflow-x-auto pb-2 pr-5 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {order.items && order.items.map((item, index) => (
-          <div key={index} className="min-w-[120px] h-[120px] bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-center p-2">
+          <div key={index} className="min-w-[100px] lg:min-w-[120px] h-[100px] lg:h-[120px] bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-center p-2">
             <img src={item.image || "/nike2.png"} className="w-full h-full rounded-xl object-contain" />
           </div>
         ))}
@@ -138,100 +142,92 @@ function OrderSummaryCard({ order, onViewDetails }) {
 
 function OrderDetailView({ order }) {
   const user = useSelector(selectCurrentUser);
-  const orders = useSelector(selectUserOrders);
-  const order2 = orders[0];
   return (
-    <div className="p-5 flex flex-col gap-5 bg-white">
+    <div className="p-3 lg:p-5 flex flex-col gap-5 bg-white">
       <div className="flex flex-col gap-5 border-gray-200">
-        <div className="flex justify-between bg-white items-center">
-          <div className="flex w-318/1000 lg:h-50 flex-col p-5 g bg-[#F9F9F9] gap-5 rounded-2xl">
+        <div className="flex flex-col lg:flex-row justify-between bg-white items-stretch lg:items-center gap-4">
+          <div className="flex w-full lg:w-318/1000 lg:h-50 flex-col p-4 lg:p-5 bg-[#F9F9F9] gap-5 rounded-2xl">
             <div className="flex rounded-2xl items-center gap-5 text-gray-700">
-              <div className="flex gap-5 flex-col">
+              <div className="flex gap-3 lg:gap-5 flex-col">
                 <div className="flex gap-1">
                   <span className="font-semibold text-[#868686] text-[14px]">کد پیگیری:</span>
                   <span className="text-[14px] font-mono">{order.id?.toString().slice(0, 6) || "۱۳۸۱۱۰۲۲۳۱۳"}</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 text-xs">
                   <span className="text-[14px]">تاریخ ثبت سفارش:</span>
-                  <span className="text-gray-800 gap-1 text-[14px] flex font-bold">
-                    {order.createdAt ? new Intl.DateTimeFormat("fa-IR", { year: "numeric", month: "long", day: "numeric" }).format(new Date(order.createdAt)) : "—"}
-                  </span>
+                  <span className="text-gray-800 text-[14px] font-bold">{order.createdAt ? new Intl.DateTimeFormat("fa-IR", { year: "numeric", month: "long", day: "numeric" }).format(new Date(order.createdAt)) : "—"}</span>
                 </div>
                 <div className="flex gap-3">
                   <span className="text-[#868686] text-[14px]">استان / شهر</span>
-                  <span className="text-[14px] text-black">خراسان شمالی / بجنورد</span>
+                  <span className="text-[14px] text-black">{order.address?.province} / {order.address?.city}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex rounded-2xl lg:h-50 w-318/1000 p-5 g bg-[#F9F9F9] flex-col gap-5">
+          <div className="flex rounded-2xl lg:h-50 w-full lg:w-318/1000 p-4 lg:p-5 bg-[#F9F9F9] flex-col gap-3 lg:gap-5">
             <div className="flex items-center gap-2">
               <span className="text-[#868686] text-[14px]">تحویل گیرنده</span>
-              <span className="text-[14px]">{user.name}</span>
+              <span className="text-[14px]">{order.address?.receiverName || user?.name}</span>
             </div>
             <div className="flex gap-1">
               <span className="text-[#868686] text-[14px]">شماره تماس</span>
-              <span className="text-[14px]">۰۹۹۲۸۳۴۸۸۲۰</span>
+              <span className="text-[14px]">{order.address?.receiverPhone || "—"}</span>
             </div>
             <div className="flex items-start gap-2">
-              <div className="flex items-center gap-2 text-gray-700">
-                <span className="font-semibold text-[14px] text-[#868686]">آدرس:</span>
-              </div>
-              <p className="text-[14px] text-black leading-5">خراسان شمالی / بجنورد، میدان شهید، بین شهید و شهریور، کوچه عزیز مصر، پلاک ۱۳</p>
+              <span className="font-semibold text-[14px] text-[#868686]">آدرس:</span>
+              <p className="text-[14px] text-black leading-5">{order.address?.fullAddress || "—"}</p>
             </div>
           </div>
 
-          <div className="flex rounded-2xl lg:h-50 w-318/1000 p-5 g bg-[#F9F9F9] flex-col gap-5">
+          <div className="flex rounded-2xl lg:h-50 w-full lg:w-318/1000 p-4 lg:p-5 bg-[#F9F9F9] flex-col gap-3 lg:gap-5">
             <div className="flex items-center gap-2 text-gray-500 text-xs">
               <span>مبلغ</span>
-              <span className="font-bold text-gray-800">{order2.totalPrice?.toLocaleString('fa-IR')} تومان</span>
+              <span className="font-bold text-gray-800">{order.finalPrice?.toLocaleString('fa-IR')} تومان</span>
             </div>
             <div className="flex gap-1">
               <span className="text-[#868686] text-[14px]">سود شما از این خرید</span>
-              <span className="text-[14px]">{order2.totalDiscount?.toLocaleString('fa-IR') || "۲۵۰,۰۰۰"}</span>
+              <span className="text-[14px]">{order.totalDiscount?.toLocaleString('fa-IR') || "—"}</span>
             </div>
             <div className="flex gap-1">
               <span className="text-[#868686] text-[14px]">هزینه ارسال</span>
-              <span className="text-[14px]">۴۵,۰۰۰</span>
+              <span className="text-[14px]">{order.shippingCost?.toLocaleString('fa-IR') || "—"}</span>
             </div>
             <div className="flex gap-1">
-              <span className="text-[14px]">پرداخت درب منزل</span>
+              <span className="text-[14px]">{order.paymentMethod === "maskan" ? "پرداخت درب منزل" : "پرداخت آنلاین"}</span>
             </div>
           </div>
         </div>
 
-        <div className="flex rounded-2xl p-5 bg-[#F9F9F9] gap-2">
-          <div className="flex w-5/10 flex-col gap-5">
+        <div className="flex flex-col lg:flex-row rounded-2xl p-4 lg:p-5 bg-[#F9F9F9] gap-4 lg:gap-2">
+          <div className="flex w-full lg:w-5/10 flex-col gap-3 lg:gap-5">
             <div className="flex gap-1 items-center">
               <TruckIcon className="w-5 h-5 text-green-700" />
-              <p className="text-[14px] text-green-700">تحویل داده شده</p>
+              <p className="text-[14px] text-green-700">{getStatusText(order.status)}</p>
             </div>
             <div className="flex items-center gap-2 text-gray-700">
               <span className="font-semibold text-[#868686] text-[14px]">زمان تحویل:</span>
-              <span className="text-[14px] font-semibold">جمعه ۲۳ دی بازه زمانی ۱۰-۲۳</span>
+              <span className="text-[14px] font-semibold">{order.deliveryDay || "—"}</span>
             </div>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3 lg:gap-5">
             <div className="">
               <p className="text-[14px] text-black">ارسال عادی</p>
             </div>
             <div className="flex items-center gap-2 text-gray-500 text-xs">
               <span className="font-semibold text-black text-[14px]">هزینه ارسال:</span>
-              <span className="font-bold text-black text-[14px]">۴۰,۰۰۰ تومان</span>
+              <span className="font-bold text-black text-[14px]">{order.shippingCost?.toLocaleString('fa-IR')} تومان</span>
             </div>
             <div className="flex items-center gap-2 text-gray-500 text-xs">
               <span className="font-bold text-black text-[14px]">کد پیگیری</span>
-              <span className="font-bold text-black text-[14px]">{order.id?.toString().slice(0, 6) || "131313170"}</span>
+              <span className="font-bold text-black text-[14px]">{order.id?.toString().slice(0, 6) || "—"}</span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
-        {order.items && order.items.map((item, index) => (
-          <OrderProductCard key={item.id || index} item={item} />
-        ))}
+        {order.items && order.items.map((item, index) => (<OrderProductCard key={item.id || index} item={item} />))}
       </div>
     </div>
   );
@@ -248,94 +244,38 @@ function ProfileLink({ to, label, icon }) {
 
 function LogoutModal({ onCancel, onConfirm }) {
   return (
-    order?.orderCode ||
-    order?.id?.toString().slice(0, 8) ||
-    "—"
+    <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative" dir="rtl">
+        <button onClick={onCancel} className="absolute top-4 left-4 size-8 rounded-lg border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-gray-100">✕</button>
+        <h3 className="text-center text-xl font-bold text-gray-800 mb-6">می‌خواهید از حساب کاربری خود خارج شوید؟</h3>
+        <p className="text-center text-sm text-gray-600 leading-7 mb-8">با خروج از حساب کاربری، به اطلاعات و سبد خرید فعالیتی نخواهید داشت و برای دسترسی دوباره می‌توانید دوباره وارد حسابیتان شوید.</p>
+        <div className="flex flex-row-reverse items-center justify-center gap-4">
+          <button onClick={onConfirm} className="bg-[#032340] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0a3a63] transition">خروج از حساب</button>
+          <button onClick={onCancel} className="border border-[#032340] text-[#032340] px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition">انصراف</button>
+        </div>
+      </div>
+    </div>
   );
-}
-
-function getTrackingCode(order) {
-  return (
-    order?.trackingCode ||
-    order?.trackingNumber ||
-    order?.id?.toString().slice(-10) ||
-    "—"
-  );
-}
-
-function userPhoneFallback(order) {
-  return order?.phone || order?.userPhone || "—";
 }
 
 function getStatusText(status) {
   switch (status) {
-    case "delivered":
-      return "تحویل داده شده";
-    case "returned":
-      return "مرجوع شده";
-    case "canceled":
-      return "لغو شده";
+    case "delivered": return "تحویل داده شده";
+    case "returned": return "مرجوع شده";
+    case "canceled": return "لغو شده";
     case "pending":
-    default:
-      return "در حال ارسال";
+    default: return "در حال ارسال";
   }
 }
 
-const UserIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="8" r="4" />
-    <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" />
-  </svg>
-);
-
-const OrderIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <rect x="4" y="3" width="16" height="18" rx="2" />
-    <path d="M8 8h8M8 12h8M8 16h5" />
-  </svg>
-);
-
-const HeartIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M12 21c-4.5-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-3.5 8-8 11z" />
-  </svg>
-);
-
-const PinIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z" />
-    <circle cx="12" cy="9" r="2.5" />
-  </svg>
-);
-
-const CommentIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M4 5h16v11H8l-4 4V5z" />
-  </svg>
-);
-
-const LogoutIcon = ({ className = "h-[21px] w-[21px]" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M15 12H4M9 7l-5 5 5 5M14 4h5a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-5" />
-  </svg>
-);
-
-const TruckIcon = ({ className = "h-5 w-5" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <rect x="1" y="3" width="15" height="13" />
-    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-    <circle cx="5.5" cy="18.5" r="2.5" />
-    <circle cx="18.5" cy="18.5" r="2.5" />
-  </svg>
-);
-
-const ArrowRightIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <path d="M19 12H5M12 19l-7-7 7-7" />
-  </svg>
-);
-
-
+const UserIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7" /></svg>);
+const OrderIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="4" y="3" width="16" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></svg>);
+const HeartIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 21c-4.5-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-3.5 8-8 11z" /></svg>);
+const PinIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>);
+const CommentIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 5h16v11H8l-4 4V5z" /></svg>);
+const LogoutIcon = ({ className = "h-[21px] w-[21px]" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M15 12H4M9 7l-5 5 5 5M14 4h5a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-5" /></svg>);
+const TruckIcon = ({ className = "h-5 w-5" }) => (<svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>);
+const ArrowRightIcon = () => (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>);
 
 function OrderProductCard({ item }) {
   const rating = Number(item?.rating || 0);
@@ -347,39 +287,31 @@ function OrderProductCard({ item }) {
         <div className="h-35 w-34 shrink-0 overflow-hidden rounded-lg">
           <img src={item?.image || "/nike2.png"} alt={item?.title || "محصول"} className="h-full w-full" />
         </div>
-
         <div className="flex min-w-0 flex-1 flex-col items-end gap-2 text-right">
           <div className="flex w-full justify-between">
-            <h3 className="text-[18px] text-balck">{item?.title || "محصول بدون نام"}</h3>
+            <h3 className="text-[18px] text-black">{item?.title || "محصول بدون نام"}</h3>
             <div className="flex items-center gap-[2px]" dir="ltr">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <span key={star} className={`text-[15px] leading-none ${star <= Math.floor(rating) ? "text-orange-400" : "text-gray-300"}`}>★</span>
-              ))}
+              {[1, 2, 3, 4, 5].map((star) => (<span key={star} className={`text-[15px] leading-none ${star <= Math.floor(rating) ? "text-orange-400" : "text-gray-300"}`}>★</span>))}
             </div>
           </div>
-
           <div className="flex items-center gap-1 w-full">
-            <div className="size-3 rounded-full" style={{ backgroundColor: item.colors[0] }}></div>
+            <div className="size-3 rounded-full" style={{ backgroundColor: item.color || "#000" }}></div>
             <p className="text-[#404040] text-[16px]">مشکی</p>
           </div>
-
           {discountAmount > 0 && (
             <div className="flex items-center w-full gap-1 text-xs text-[#E53935]">
               <span>{discountAmount.toLocaleString("fa-IR")}</span>
               <span>تومان تخفیف</span>
             </div>
           )}
-
           <div className="flex w-full items-center gap-2">
             <span className="text-[16px] text-[#404040]">{Number(item.price).toLocaleString("fa-IR")} تومان</span>
           </div>
-
           <div className="w-full flex">
-            <p className="flex flex-row-reverse"><span>*</span>۱</p>
+            <p className="flex flex-row-reverse"><span>*</span>{item.quantity || 1}</p>
           </div>
         </div>
       </div>
-
       <button type="button" className="absolute flex-row-reverse bottom-4 left-5 flex items-center gap-2 text-xs text-[#FA541C] transition hover:text-[#d94312]">
         <span>ثبت دیدگاه</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

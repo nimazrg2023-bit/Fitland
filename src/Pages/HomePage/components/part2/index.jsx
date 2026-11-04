@@ -12,12 +12,12 @@ export default function Part2() {
                 <div className="absolute z-20 inset-0 rounded-2xl lg:bg-black/0 bg-black/60">
 
 
-                    <div className="flex lg:hidden flex-col gap-5 w-full justify-center items-center h-full   p-5 text-white">
-                        <p className="text-[14px] text-center">فقط با یک کلیک وارد دنیای محصولات جدید شوید</p>
+                    <div className="flex lg:hidden flex-col  w-full justify-center items-center h-full   p-4 text-white">
+                        <p className="max-sm:text-[12px] text-center">فقط با یک کلیک وارد دنیای محصولات جدید شوید</p>
 
-                        <button className="border-2 relative top-5 justify-center items-center p-2 border-white flex gap-2 rounded-2xl">
-                            <NavLink to={"/product"} className="text-[10px] font-medium">جدیدترین محصولات</NavLink>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="border-2 relative gap-1 top-3 justify-center items-center p-1 border-white flex  rounded-xl">
+                            <NavLink to={"/product"} className="  text-[9px] font-medium">جدیدترین محصولات</NavLink>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.37 22.75H4.62C2.32 22.75 1.25 21.68 1.25 19.38V14.63C1.25 12.32 2.32 11.25 4.62 11.25H7C7.41 11.25 7.75 11.59 7.75 12V14.37C7.75 15.83 8.17 16.25 9.62 16.25H12C12.41 16.25 12.75 16.59 12.75 17V19.38C12.75 21.68 11.68 22.75 9.37 22.75ZM4.62 12.75C3.17 12.75 2.75 13.17 2.75 14.63V19.38C2.75 20.83 3.17 21.25 4.62 21.25H9.37C10.83 21.25 11.25 20.83 11.25 19.38V17.75H9.62C7.32 17.75 6.25 16.68 6.25 14.37V12.75H4.62Z" fill="white" />
                                 <path d="M14.37 17.75H9.62C7.32 17.75 6.25 16.68 6.25 14.37V9.62C6.25 7.32 7.32 6.25 9.62 6.25H12C12.41 6.25 12.75 6.59 12.75 7V9.37C12.75 10.83 13.17 11.25 14.62 11.25H17C17.41 11.25 17.75 11.59 17.75 12V14.37C17.75 16.68 16.68 17.75 14.37 17.75ZM9.62 7.75C8.17 7.75 7.75 8.17 7.75 9.62V14.37C7.75 15.83 8.17 16.25 9.62 16.25H14.37C15.83 16.25 16.25 15.83 16.25 14.37V12.75H14.62C12.32 12.75 11.25 11.68 11.25 9.37V7.75H9.62Z" fill="white" />
                                 <path d="M19.37 12.75H14.62C12.32 12.75 11.25 11.68 11.25 9.37V4.62C11.25 2.32 12.32 1.25 14.62 1.25H19.37C21.68 1.25 22.75 2.32 22.75 4.62V9.37C22.75 11.68 21.68 12.75 19.37 12.75ZM14.62 2.75C13.17 2.75 12.75 3.17 12.75 4.62V9.37C12.75 10.83 13.17 11.25 14.62 11.25H19.37C20.83 11.25 21.25 10.83 21.25 9.37V4.62C21.25 3.17 20.83 2.75 19.37 2.75H14.62Z" fill="white" />
@@ -29,7 +29,7 @@ export default function Part2() {
                 </div>
 
 
-                <div className="z-10 w-full h-4/10 gap-2 flex lg:justify-center lg:pt-10  flex-col justify-end p-3 items-end absolute bottom-0 text-white bg-[#021526] rounded-2xl lg:blur-none blur-sm" style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}>
+                <div className="z-10 w-full h-4/10 gap-2 flex  lg:justify-center lg:pt-10  flex-col justify-end p-3 items-end absolute bottom-0 text-white bg-[#021526] rounded-2xl lg:blur-none blur-sm" style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}>
                     <p className="text-[10px] font-medium lg:font-semibold lg:text-[18px]">
                         جدید ترین تخفیفات فصل برند نایک
                     </p>
@@ -43,7 +43,7 @@ export default function Part2() {
             </div>
             <div className="w-48/100  lg:w-40/100 relative rounded-2xl">
                 <img className="rounded-2xl" src="/Part2Home1.png" alt="" />
-                <div className="z-10 w-full  h-4/10 gap-2 flex lg:pt-10 flex-col lg:justify-center justify-end p-3 items-end absolute bottom-0 text-white bg-[#021526] rounded-2xl" style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}>
+                <div className="z-10 w-full  h-43/100 gap-1 flex lg:pt-10 flex-col lg:justify-center justify-end pb-2 pr-1  items-end absolute bottom-0 text-white bg-[#021526] rounded-2xl" style={{ clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)" }}>
                     <p className="text-[10px] lg:font-semibold lg:text-[18px]  font-medium">جدید ترین تخفیفات فصل برند پوما</p>
                     <p className="text-[10px] lg:font-semibold lg:text-[18px]  font-medium flex gap-2">تخفیف روی تمام محصولات <span className="text-[#FC9877]">٪ ۵۰ </span></p>
                 </div>
